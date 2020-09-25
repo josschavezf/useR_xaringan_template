@@ -1,0 +1,25 @@
+---
+title: "Your title"
+author: "Presenter name"
+output:
+  xaringan::moon_reader:
+    css: [useR, useR-fonts]
+    lib_dir: libs
+---
+
+class: chapter-slide
+
+# Chapter
+
+---
+
+## Header 2
+
+Some text
+
+### Header 3
+
+```{r}
+# some code
+seq(1:5)
+```
