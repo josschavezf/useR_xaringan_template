@@ -1,6 +1,9 @@
 ---
-title: "Your title"
+title: "A very very long title example with a lot of words, enoughth to cover three lines"
 author: "Your name"
+subtitle: "Subtitle"
+institute: "RStudio, PBC"
+date: "2020-09-25"
 output:
   xaringan::moon_reader:
     css: [useR, useR-fonts]

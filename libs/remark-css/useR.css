@@ -1,6 +1,6 @@
 .remark-slide-content {
   background-image: url("https://www.r-project.org/conferences/useR.png"), linear-gradient(to bottom, white 85%, rgba(227, 227, 227) 95%) ;
-  background-position: 8% 95% , center;
+  background-position: 2% 99% , center;
   background-size: 85px , 100% 100%, cover ;
 }
 
@@ -17,18 +17,21 @@
 
 .title-slide h1 {
   position: absolute;
-  top: 60%;
-  left: 10%;
+  bottom: 15%;
   text-align: left;
   color: #454647;
   font-weight: bold;
 }
 
+.title-slide h2 {
+  font-size: 0pt;
+}
+
 .title-slide h3 {
-  position: absolute;
-  top: 75%;
-  left: 10%;
+  margin-top: -40px;
   text-align: left;
+  position: relative ;
+  top: 300px;
   color: #454647;
   font-weight: normal;
 }
