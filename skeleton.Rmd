@@ -23,3 +23,34 @@ Some text
 # some code
 seq(1:5)
 ```
+
+---
+
+## Creating some plots
+
+We will use the [colorblindr](https://github.com/clauswilke/colorblindr) package to create some colorblind-friendly plots. 
+Let's see how the graph looks like with various color-vision-deficiency simulations:
+
+```{r, echo=FALSE, message=FALSE}
+library(ggplot2)
+library(colorblindr)
+library(cowplot)
+```
+
+```{r, out.width = '520px', out.height='350px', fig.align='center'}
+fig <- ggplot(iris, aes(Sepal.Length, fill = Species)) + geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) 
+fig_grid <- cvd_grid(fig)
+plot_grid(fig, fig_grid, rel_widths = c(1, 2))
+```
+
+---
+
+Let's use a color scale that works better
+
+```{r, out.width = '550px', out.height='400px',fig.align='center'}
+fig2 <- ggplot(iris, aes(Sepal.Length, fill = Species)) +  geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) + 
+  scale_fill_OkabeIto()
+fig_grid2 <- cvd_grid(fig2)
+plot_grid(fig2, fig_grid2, rel_widths = c(1, 2))
+```
+

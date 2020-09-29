@@ -38,6 +38,38 @@ seq(1:5)
 ```
 ## [1] 1 2 3 4 5
 ```
+
+---
+
+## Creating some plots
+
+We will use the [colorblindr](https://github.com/clauswilke/colorblindr) package to create some colorblind-friendly plots. 
+Let's see how the graph looks like with various color-vision-deficiency simulations:
+
+
+
+
+```r
+fig &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) + geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) 
+fig_grid &lt;- cvd_grid(fig)
+plot_grid(fig, fig_grid, rel_widths = c(1, 2))
+```
+
+&lt;img src="skeleton_files/figure-html/unnamed-chunk-3-1.png" width="520px" height="350px" style="display: block; margin: auto;" /&gt;
+
+---
+
+Let's use a color scale that works better
+
+
+```r
+fig2 &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) +  geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) + 
+  scale_fill_OkabeIto()
+fig_grid2 &lt;- cvd_grid(fig2)
+plot_grid(fig2, fig_grid2, rel_widths = c(1, 2))
+```
+
+&lt;img src="skeleton_files/figure-html/unnamed-chunk-4-1.png" width="550px" height="400px" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
