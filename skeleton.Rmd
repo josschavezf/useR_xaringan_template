@@ -79,30 +79,3 @@ cvd_grid(ggplot(iris, aes(Sepal.Length, fill = Species)) +
   theme(legend.position = c(0.7, 0.8))+ scale_fill_OkabeIto() ) 
 ```
 
-
-
-
----
-Previous slide
-```{r}
-fig2 <- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
-  geom_density(alpha = 0.7) + theme_bw(base_size = 18) + 
-  theme(legend.position = c(0.7, 0.8), legend.margin = margin(), 
-        legend.title = element_blank())+scale_fill_OkabeIto()
-fig_grid2 <- cvd_grid(fig2)
-```
-<br>
-.pull-left[ 
-```{r,echo=FALSE, fig.show="hold", out.width="80%", fig.align='center'}
-ggplot(iris, aes(Sepal.Length, fill = Species)) + 
-  geom_density(alpha = 0.7) + theme_bw(base_size = 28) + 
-  theme(legend.position = c(0.8, 0.9), legend.title = element_blank(),
-        legend.margin = margin()) + scale_fill_OkabeIto()
-```
-]
-
-.pull-right[
-```{r,echo=FALSE, fig.show="hold", out.width="100%", fig.align='center'}
-fig_grid2
-```
-]
