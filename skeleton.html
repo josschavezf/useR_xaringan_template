@@ -43,8 +43,8 @@ seq(1:5)
 
 ## Creating some plots
 
-We will use the [colorblindr](https://github.com/clauswilke/colorblindr) package to create some colorblind-friendly plots. 
-Let's see how the graph looks like with various color-vision-deficiency simulations:
+We will use the [viridis](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html) package to create some colorblind-friendly plots. 
+Let's see how the graph looks like with various color-vision-deficiency [simulations](https://github.com/clauswilke/colorblindr):
 
 
 
@@ -69,13 +69,14 @@ Let's use a color scale that works better
 
 ```r
 fig2 &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
-  geom_density(alpha = 0.7) + theme_useR() + 
-  theme(legend.position = c(0.8, 0.9))+ scale_fill_OkabeIto()
+  geom_density(alpha = 0.8) + theme_useR() + 
+  theme(legend.position = c(0.8, 0.9))+ 
+  scale_fill_viridis(discrete = TRUE)
 fig_grid2 &lt;- cvd_grid(fig2)
 ```
 
 
-&lt;img src="skeleton_files/figure-html/unnamed-chunk-6-1.png" width="50%" /&gt;&lt;img src="skeleton_files/figure-html/unnamed-chunk-6-2.png" width="50%" /&gt;
+&lt;img src="skeleton_files/figure-html/unnamed-chunk-6-1.png" width="48%" /&gt;&lt;img src="skeleton_files/figure-html/unnamed-chunk-6-2.png" width="48%" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
