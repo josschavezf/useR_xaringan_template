@@ -50,26 +50,54 @@ Let's see how the graph looks like with various color-vision-deficiency simulati
 
 
 ```r
-fig &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) + geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) 
+fig &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_useR() + 
+  theme(legend.position = c(0.8, 0.9),legend.margin = margin(),
+        legend.title = element_blank()) 
 fig_grid &lt;- cvd_grid(fig)
-plot_grid(fig, fig_grid, rel_widths = c(1, 2))
 ```
 
-&lt;img src="skeleton_files/figure-html/unnamed-chunk-3-1.png" width="520px" height="350px" style="display: block; margin: auto;" /&gt;
+.center[
+&lt;img src="skeleton_files/figure-html/unnamed-chunk-4-1.png" width="40%" /&gt;&lt;img src="skeleton_files/figure-html/unnamed-chunk-4-2.png" width="40%" /&gt;
+]
 
 ---
 
 Let's use a color scale that works better
 
 
+
 ```r
-fig2 &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) +  geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) + 
-  scale_fill_OkabeIto()
+fig2 &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_useR() + 
+  theme(legend.position = c(0.8, 0.9))+ scale_fill_OkabeIto()
 fig_grid2 &lt;- cvd_grid(fig2)
-plot_grid(fig2, fig_grid2, rel_widths = c(1, 2))
 ```
 
-&lt;img src="skeleton_files/figure-html/unnamed-chunk-4-1.png" width="550px" height="400px" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="skeleton_files/figure-html/unnamed-chunk-6-1.png" width="50%" /&gt;&lt;img src="skeleton_files/figure-html/unnamed-chunk-6-2.png" width="50%" /&gt;
+
+
+
+
+---
+Previous slide
+
+```r
+fig2 &lt;- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_bw(base_size = 18) + 
+  theme(legend.position = c(0.7, 0.8), legend.margin = margin(), 
+        legend.title = element_blank())+scale_fill_OkabeIto()
+fig_grid2 &lt;- cvd_grid(fig2)
+```
+&lt;br&gt;
+.pull-left[ 
+&lt;img src="skeleton_files/figure-html/unnamed-chunk-8-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="skeleton_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

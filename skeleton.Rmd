@@ -34,23 +34,75 @@ Let's see how the graph looks like with various color-vision-deficiency simulati
 ```{r, echo=FALSE, message=FALSE}
 library(ggplot2)
 library(colorblindr)
-library(cowplot)
+
+theme_useR <- function(base_size = 28) {
+  theme_bw(base_size = base_size) + 
+    theme(legend.margin = margin(), legend.title = element_blank())
+}
 ```
 
-```{r, out.width = '520px', out.height='350px', fig.align='center'}
-fig <- ggplot(iris, aes(Sepal.Length, fill = Species)) + geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) 
+```{r}
+fig <- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_useR() + 
+  theme(legend.position = c(0.8, 0.9),legend.margin = margin(),
+        legend.title = element_blank()) 
 fig_grid <- cvd_grid(fig)
-plot_grid(fig, fig_grid, rel_widths = c(1, 2))
 ```
+
+.center[
+```{r,echo=FALSE, fig.show="hold", out.width="40%"}
+fig
+cvd_grid(ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_useR(base_size = 18) + 
+  theme(legend.position = c(0.7, 0.8)) )
+
+```
+]
 
 ---
 
 Let's use a color scale that works better
 
-```{r, out.width = '550px', out.height='400px',fig.align='center'}
-fig2 <- ggplot(iris, aes(Sepal.Length, fill = Species)) +  geom_density(alpha = 0.7, show.legend = FALSE) + theme(text = element_text(size = 16)) + 
-  scale_fill_OkabeIto()
+
+```{r}
+fig2 <- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_useR() + 
+  theme(legend.position = c(0.8, 0.9))+ scale_fill_OkabeIto()
 fig_grid2 <- cvd_grid(fig2)
-plot_grid(fig2, fig_grid2, rel_widths = c(1, 2))
 ```
 
+
+```{r,echo=FALSE, fig.show="hold", out.width="50%"}
+fig2
+cvd_grid(ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_useR(base_size = 18) + 
+  theme(legend.position = c(0.7, 0.8))+ scale_fill_OkabeIto() ) 
+```
+
+
+
+
+---
+Previous slide
+```{r}
+fig2 <- ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_bw(base_size = 18) + 
+  theme(legend.position = c(0.7, 0.8), legend.margin = margin(), 
+        legend.title = element_blank())+scale_fill_OkabeIto()
+fig_grid2 <- cvd_grid(fig2)
+```
+<br>
+.pull-left[ 
+```{r,echo=FALSE, fig.show="hold", out.width="80%", fig.align='center'}
+ggplot(iris, aes(Sepal.Length, fill = Species)) + 
+  geom_density(alpha = 0.7) + theme_bw(base_size = 28) + 
+  theme(legend.position = c(0.8, 0.9), legend.title = element_blank(),
+        legend.margin = margin()) + scale_fill_OkabeIto()
+```
+]
+
+.pull-right[
+```{r,echo=FALSE, fig.show="hold", out.width="100%", fig.align='center'}
+fig_grid2
+```
+]
