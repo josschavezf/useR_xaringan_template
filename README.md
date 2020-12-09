@@ -49,5 +49,5 @@ Here are some captions of how your presentation would looks like:
 
 ## Please, include Alternative text in your figures to facilitate their interpretation using screen readers.   
 
-
+If this is your first time using alternative text, this [article](https://www.techsmith.com/blog/how-to-create-alternative-text-for-images-for-accessibility-and-seo/) could be helpful. Also, if you want to ensure that your alt-text is clear, this [article](https://webaim.org/articles/voiceover/) will guide you to activate the VoiceOver screen reader and listen how your alternative text will sound. 
 
